@@ -1,9 +1,6 @@
 package main;
 
-import config.AppConf1;
-import config.AppConf2;
-import config.AppConfImport;
-import config.AppCtx;
+import config.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.*;
@@ -18,7 +15,7 @@ public class MainForSpring {
 
     public static void main(String[] args) throws IOException {
 //        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
-        ctx = new AnnotationConfigApplicationContext(AppConfImport.class);
+        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 //        ctx = new AnnotationConfigApplicationContext(AppConf1.class, AppConf2.class);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -76,7 +73,7 @@ public class MainForSpring {
             printHelp();
             return;
         }
-        MemberRegisterService regSvc = ctx.getBean("memberRegisterService", MemberRegisterService.class);
+        MemberRegisterService regSvc = ctx.getBean(MemberRegisterService.class);
         RegisterRequest req = new RegisterRequest();
         req.setEmail(arg[1]);
         req.setName(arg[2]);
@@ -99,7 +96,7 @@ public class MainForSpring {
             printHelp();
             return;
         }
-        ChangePasswordService changePwdSvc = ctx.getBean("changePwdSvc", ChangePasswordService.class);
+        ChangePasswordService changePwdSvc = ctx.getBean(ChangePasswordService.class);
         try{
 
         }catch (MemberNotFoundException e){

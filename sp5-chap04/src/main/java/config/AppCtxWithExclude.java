@@ -5,14 +5,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
-import spring.*;
+import spring.MemberPrinter;
+import spring.MemberSummaryPrinter;
+import spring.VersionPrinter;
 
 @Configuration
-@ComponentScan(basePackages = {"spring","spring2"})
-public class AppCtx {
+@ComponentScan(basePackages = {"spring"}
+                , excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {}))
+public class AppCtxWithExclude {
 //    @Bean
-//    public MemberDao memberDao2(){
-//        MemberDao memberDao = new MemberDao();
+//    public MemberDao memberDao(){
 //        return new MemberDao();
 //    }
 //    @Bean
